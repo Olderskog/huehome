@@ -28,12 +28,13 @@ class LightCircle extends StatelessWidget {
 
   Widget _colorGradientNoColors() {
     return Container(
-      height: 50,
-      width: 50,
+      height: 60,
+      width: 60,
       child: Center(child: Icon(Icons.lightbulb_outline)),
     );
   }
 
+  /// Creates the color circle if there is ony one color
   Widget _colorGradientOneColor() {
     return Container(
       height: 50,
@@ -53,6 +54,7 @@ class LightCircle extends StatelessWidget {
     );
   }
 
+  /// Creates a color gradient using multiple colors
   Widget _colorGradientMultipleColors() {
     return Container(
       height: 50,
@@ -60,7 +62,11 @@ class LightCircle extends StatelessWidget {
       //color: Colors.blueGrey,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        gradient: RadialGradient(colors: colors.take(3).toList(), center: Alignment(0.0, 0.0), radius: 0.7, focalRadius: 0.3),
+        gradient: LinearGradient(
+          begin: Alignment(0.0, -0.8),
+          tileMode: TileMode.clamp,
+          colors: colors.take(3).toList(), /*center: Alignment(0.0, 0.0), radius: 0.7, focalRadius: 0.3*/
+        ),
       ),
       child: Center(
         child: Icon(
@@ -71,6 +77,7 @@ class LightCircle extends StatelessWidget {
     );
   }
 
+  /// Creates the border around the color gradient
   Widget _border() {
     if (colors.length == 0) {
       return Container();
@@ -81,7 +88,7 @@ class LightCircle extends StatelessWidget {
       width: 60,
       alignment: Alignment.topCenter,
       decoration: BoxDecoration(
-        border: Border.all(color: _borderColor(), width: 5),
+        border: Border.all(color: _borderColor(), width: 4.5),
         shape: BoxShape.circle,
       ),
     );

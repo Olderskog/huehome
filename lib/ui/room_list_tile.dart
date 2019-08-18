@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:huehome/domain/room.dart';
@@ -54,8 +52,10 @@ class RoomListTile extends StatelessWidget {
     );
   }
 
-  final bool t = false;
+  // final bool t = false;
   Widget _trailing() {
+    bool t = true; //room.lights.any((l) => l.on) ?? false;
+
     Color c;
     if (room.getColors().length >= 1) {
       c = room.getColors().first;
@@ -67,7 +67,7 @@ class RoomListTile extends StatelessWidget {
         onChanged: (state) {
           //light.on = state;
         },
-        value: math.Random().nextBool() ? false : true,
+        value: t,
       ),
     );
   }
