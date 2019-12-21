@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:huehome/data/light_repository.dart';
 import 'package:huehome/data/room_repository.dart';
 import 'package:huehome/ui/hue_home_theme.dart';
+import 'package:huehome/ui/pages/main_page.dart';
 import 'package:logging/logging.dart';
 import 'package:provider/provider.dart';
-
-import 'ui/home_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'HueHome',
         theme: hueHomeTheme,
-        home: MyHomePage(title: 'Home'),
+        home: MainPage(title: 'Home'),
       ),
     );
   }

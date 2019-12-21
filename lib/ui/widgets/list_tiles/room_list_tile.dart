@@ -17,6 +17,9 @@ class RoomListTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
       child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
         elevation: 2,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),

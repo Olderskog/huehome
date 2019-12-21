@@ -20,7 +20,7 @@ class RoomRepository {
 /// Function returning a provider for providing a RoomRepository
 Provider<RoomRepository> roomRepoProvider() {
   return Provider(
-    builder: (context) => RoomRepository(),
+    create: (context) => RoomRepository(),
     dispose: (context, repo) => {},
   );
 }

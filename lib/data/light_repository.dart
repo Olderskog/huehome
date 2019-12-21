@@ -97,7 +97,7 @@ class LightRespository {
 /// Function returning a provider for providing a RoomRepository
 Provider<LightRespository> lightRepoProvider() {
   return Provider(
-    builder: (context) => LightRespository(),
+    create: (context) => LightRespository(),
     dispose: (context, repo) => {},
   );
 }

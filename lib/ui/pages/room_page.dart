@@ -1,35 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:huehome/data/room_repository.dart';
-import 'package:huehome/ui/room_list_tile.dart';
-import 'package:huehome/ui/scenes_list_tile.dart';
+import 'package:huehome/ui/widgets/list_tiles/room_list_tile.dart';
+import 'package:huehome/ui/widgets/list_tiles/scenes_list_tile.dart';
 import 'package:provider/provider.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class RoomPage extends StatefulWidget {
+  RoomPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _RoomPageState createState() => _RoomPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _RoomPageState extends State<RoomPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: _appBar(),
-        body: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              _roomList(),
-              _scenesHeader(),
-              _scenesList(),
-            ],
-          ),
+      appBar: _appBar(),
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            _roomList(),
+            _scenesHeader(),
+            _scenesList(),
+          ],
         ),
-        bottomNavigationBar: _bottomNavBar());
+      ),
+      //bottomNavigationBar: _bottomNavBar()
+    );
   }
 
   AppBar _appBar() {
@@ -101,29 +102,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _bottomNavBar() {
-    return BottomNavigationBar(
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      selectedItemColor: Colors.black87,
-      currentIndex: 1,
-      items: [
-        BottomNavigationBarItem(
-          title: Text("Events"),
-          icon: Icon(Icons.schedule),
-        ),
-        BottomNavigationBarItem(
-          title: Text("Home"),
-          icon: Icon(Icons.home),
-        ),
-        BottomNavigationBarItem(
-          title: Text("History"),
-          icon: Icon(Icons.list),
-        ),
-      ],
     );
   }
 }
